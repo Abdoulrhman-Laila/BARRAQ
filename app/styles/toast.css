@@ -1,0 +1,54 @@
+/* Toast (Sonner) — aligned with Baraq tokens; host only, no API wiring */
+
+.baraq-toast__item {
+  font-family: var(--font-ar) !important;
+  font-size: var(--fs-md) !important;
+  line-height: var(--lh-snug) !important;
+  border-radius: var(--radius-md, 12px) !important;
+  border: 1px solid var(--border) !important;
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow-md, 0 10px 30px rgba(7, 27, 73, 0.12)) !important;
+}
+
+.baraq-toast__title {
+  font-weight: var(--fw-semibold) !important;
+  color: var(--text) !important;
+}
+
+.baraq-toast__description {
+  color: var(--text-soft) !important;
+  font-size: var(--fs-sm) !important;
+}
+
+.baraq-toast__close {
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-soft) !important;
+}
+
+.baraq-toast__action {
+  background: var(--purple) !important;
+  color: #fff !important;
+}
+
+.baraq-toast--success {
+  border-color: color-mix(in srgb, var(--green) 35%, var(--border)) !important;
+}
+
+.baraq-toast--error {
+  border-color: color-mix(in srgb, var(--red) 35%, var(--border)) !important;
+}
+
+.baraq-toast--warning {
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--border)) !important;
+}
+
+.baraq-toast--info {
+  border-color: color-mix(in srgb, var(--blue) 35%, var(--border)) !important;
+}
+
+:root[data-theme="dark"] .baraq-toast__item {
+  background: var(--surface-2) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+}

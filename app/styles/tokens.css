@@ -1,0 +1,147 @@
+/* Baraq Design Tokens — palette locked to brand identity */
+:root {
+  /* Brand colors (do not replace) */
+  --navy: #071b49;
+  --navy-2: #0d2e69;
+  --purple: #7b2ee8;
+  --pink: #e92f87;
+  --green: #18a957;
+  --blue: #1977e9;
+  --red: #e93d3d;
+  --gold: #e8a400;
+
+  /* Surfaces */
+  --background: #f4f7fc;
+  --surface: #ffffff;
+  --surface-2: #f8faff;
+  --surface-3: #eef3fb;
+  --text: #0f1f3d;
+  --text-soft: #5f6f89;
+  --text-faint: #8c99ad;
+  --border: #dfe6f1;
+  --border-strong: #cfd9e8;
+  --danger-text: #c52b3a;
+  --success-text: #14924b;
+  --warning-text: #b17b00;
+  --info-text: #1768c5;
+  color-scheme: light;
+
+  /* Typography */
+  --font-ar: var(--font-baraq), "Cairo", "Segoe UI", Tahoma, Arial, sans-serif;
+  --fs-2xs: 0.6875rem;   /* 11 */
+  --fs-xs: 0.75rem;      /* 12 */
+  --fs-sm: 0.8125rem;    /* 13 */
+  --fs-md: 0.875rem;     /* 14 */
+  --fs-lg: 1rem;         /* 16 */
+  --fs-xl: 1.125rem;     /* 18 */
+  --fs-2xl: 1.375rem;    /* 22 */
+  --fs-3xl: 1.75rem;     /* 28 */
+  --fs-4xl: clamp(1.75rem, 2.2vw, 2.125rem);
+  --lh-tight: 1.25;
+  --lh-snug: 1.4;
+  --lh-normal: 1.55;
+  --lh-relaxed: 1.7;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+
+  /* Radius */
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius: var(--radius-lg);
+  --radius-pill: 999px;
+
+  /* Shadows — brand-tinted, soft */
+  --shadow-xs: 0 1px 2px rgba(23, 41, 81, 0.04);
+  --shadow-sm: 0 4px 14px rgba(23, 41, 81, 0.05);
+  --shadow-md: 0 10px 28px rgba(23, 41, 81, 0.07);
+  --shadow-lg: 0 18px 48px rgba(23, 41, 81, 0.1);
+  --shadow-xl: 0 28px 70px rgba(12, 31, 74, 0.14);
+  --shadow: var(--shadow-lg);
+  --shadow-soft: var(--shadow-sm);
+  --shadow-purple: 0 10px 28px rgba(123, 46, 232, 0.32);
+  --shadow-brand: 0 10px 28px rgba(123, 46, 232, 0.32);
+  --shadow-focus: 0 0 0 3px rgba(123, 46, 232, 0.18);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 180ms;
+  --duration-slow: 280ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout / z-index */
+  --sidebar-width: 280px;
+  --topbar-height: 72px;
+  --content-max: 1600px;
+
+  /* One fluid page gutter instead of a padding restated at every breakpoint.
+     16px on a 360px phone, growing to 32px by ~1280px and holding there:
+     the edge distance a reader needs does not keep growing with the
+     viewport, it just stops being cramped. Restating the same value in
+     three media queries is how two of them drift. */
+  --gutter: clamp(1rem, 0.35rem + 2.2vw, 2rem);
+  /* Tighter, for bars that sit against the chrome rather than the page. */
+  --gutter-tight: clamp(0.75rem, 0.3rem + 1.6vw, 1.5rem);
+  --z-sidebar: 60;
+  --z-overlay: 55;
+  --z-topbar: 40;
+  --z-modal: 100;
+
+  /* Gradients from existing palette */
+  --gradient-brand: linear-gradient(135deg, var(--purple), #4f46d9);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(123, 46, 232, 0.9), rgba(36, 93, 213, 0.78));
+  --on-brand: #fff;
+  --focus-ring: color-mix(in srgb, var(--purple) 70%, white);
+  --gradient-shell: radial-gradient(ellipse 70% 45% at 85% -5%, rgba(123, 46, 232, 0.07), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(25, 119, 233, 0.04), transparent 50%),
+    var(--background);
+  --gradient-bar: linear-gradient(90deg, var(--purple), var(--pink));
+  --gradient-avatar: linear-gradient(135deg, var(--purple), var(--blue));
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #07101c;
+  --surface: #0c182c;
+  --surface-2: #101f38;
+  --surface-3: #162843;
+  --text: #eef5ff;
+  --text-soft: #a8b7cd;
+  --text-faint: #71839e;
+  --border: #1e3450;
+  --border-strong: #2a4566;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.28);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.36);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.42);
+  --shadow-xl: 0 28px 70px rgba(0, 0, 0, 0.5);
+  --shadow: var(--shadow-lg);
+  --shadow-soft: var(--shadow-sm);
+  --shadow-purple: 0 10px 28px rgba(123, 46, 232, 0.32);
+  --shadow-focus: 0 0 0 3px rgba(123, 46, 232, 0.32);
+  --gradient-shell: radial-gradient(ellipse 70% 45% at 85% -5%, rgba(123, 46, 232, 0.16), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(25, 119, 233, 0.08), transparent 50%),
+    var(--background);
+  --danger-text: #f87171;
+  --success-text: #4ade80;
+  --warning-text: #fbbf24;
+  --info-text: #60a5fa;
+}

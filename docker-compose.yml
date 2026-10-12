@@ -1,0 +1,31 @@
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BINDING_ENABLED: ${NEXT_PUBLIC_API_BINDING_ENABLED:-true}
+        API_BINDING_ENABLED: ${API_BINDING_ENABLED:-true}
+        NEXT_PUBLIC_APP_NAME: ${NEXT_PUBLIC_APP_NAME:-لوحة تحكم برّاق}
+        NEXT_PUBLIC_DEFAULT_LOCALE: ${NEXT_PUBLIC_DEFAULT_LOCALE:-ar}
+        NEXT_PUBLIC_DASHBOARD_VERSION: ${NEXT_PUBLIC_DASHBOARD_VERSION:-1.0.0}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      BACKEND_API_URL: ${BACKEND_API_URL:?BACKEND_API_URL is required}
+      API_BINDING_ENABLED: ${API_BINDING_ENABLED:-true}
+      NEXT_PUBLIC_API_BINDING_ENABLED: ${NEXT_PUBLIC_API_BINDING_ENABLED:-true}
+      NEXT_PUBLIC_APP_NAME: ${NEXT_PUBLIC_APP_NAME:-لوحة تحكم برّاق}
+      NEXT_PUBLIC_DEFAULT_LOCALE: ${NEXT_PUBLIC_DEFAULT_LOCALE:-ar}
+      NEXT_PUBLIC_DASHBOARD_VERSION: ${NEXT_PUBLIC_DASHBOARD_VERSION:-1.0.0}
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-true}
+      AUTH_COOKIE_DOMAIN: ${AUTH_COOKIE_DOMAIN:-}
+      DEPLOYMENT_ENVIRONMENT: ${DEPLOYMENT_ENVIRONMENT:-production}
+    expose:
+      - "3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
